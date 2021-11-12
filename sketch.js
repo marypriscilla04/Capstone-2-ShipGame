@@ -12,10 +12,10 @@ var gameOverImg;
 function preload(){
   skybg = loadImage("skybg.jpg");
   waterbg = loadImage("waterbg.png");
-  shipimg = loadImage("ship.png");
+  shipimg = loadAnimation("ship.png","ship2.png","ship.png");
   helicopterimg = loadImage("helicopter.png");
   bombimg = loadImage("bomb.png");
-  gameOverImg = loadImage("gameOver.png");
+  gameOverImg = loadAnimation("gameOver.png");
 }
 
 function setup() {
@@ -28,7 +28,7 @@ function setup() {
     
   //creating ship
   ship = createSprite(400,300,30,100);
-  ship.addImage("ship",shipimg);
+  ship.addAnimation("ship",shipimg);
   ship.scale = 0.4;
   
   //creating helicopter group
@@ -68,7 +68,7 @@ function draw() {
   
   //gameState end
   else if(gameState === END){
-    ship.addImage("ship",gameOverImg);
+    ship.addAnimation("ship",gameOverImg);
     ship.x = 400;
     ship.y = 225;
    //water velocity becomes zero
